@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="EmployeeUserControlWPF.Views.DashboardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EmployeeUserControlWPF.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="#FF736060">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Department DataGrid -->
+        <DataGrid x:Name="GridDepartment" 
+                  Grid.Row="0" 
+                  AutoGenerateColumns="False" 
+                  VerticalAlignment="Stretch" 
+                  HorizontalAlignment="Stretch">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Width="*" Binding="{Binding DepartmentId}" />
+                <DataGridTextColumn Header="Name" Width="*" Binding="{Binding Name}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Employee List DataGrid -->
+        <DataGrid x:Name="GridEmployeeList" 
+                  Grid.Row="1" 
+                  AutoGenerateColumns="False" 
+                  VerticalAlignment="Stretch" 
+                  HorizontalAlignment="Stretch">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Visibility="Hidden" Width="*" Binding="{Binding EmployeeId}" />
+                <DataGridTextColumn Header="Name" Width="*" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="DOB" Width="*" Binding="{Binding DOB , StringFormat={}{0:dd/MM/yyyy}}" />
+                <DataGridTextColumn Header="Departments" Width="*" Binding="{Binding Departments}" />
+                <DataGridTextColumn Header="Salary" Width="*" Binding="{Binding Salary}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>
